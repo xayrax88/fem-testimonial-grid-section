@@ -89,7 +89,7 @@ footer {
       no-repeat top right;
     background-size: 104px 102px;
     background-position: top calc(0.1rem) right calc(1.5rem);
-    border-radius: 1em;
+    border-radius: 0.5em;
     padding: 1.5em;
     position: relative;
   }
