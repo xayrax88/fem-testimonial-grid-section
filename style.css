@@ -7,17 +7,8 @@ The designs were created to the following widths:
 > 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
 
 Note for text colors:
-
 1. "Verified Graduate" has the same color as the person's name with 50% opacity
 2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
-
-## Typography
-
-### Body Copy
-
-
-
-### Font
 
 - Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
 - Weights: 500, 600  */
@@ -27,6 +18,10 @@ Note for text colors:
 
 :root {
   --Moderate-violet: hsl(263, 55%, 52%);
+  --violet-50-opacity: rgba(255, 255, 255, 0.5);
+  /* rgba(117, 65, 200, 0.5); */
+  --violet-70-opacity: rgba(255, 255, 255, 0.7);
+  /* rgba(117, 65, 200, 0.7) */
   --Very-dark-grayish-blue: hsl(217, 19%, 35%);
   --Very-dark-blackish-blue: hsl(219, 29%, 14%);
 
@@ -41,18 +36,20 @@ Note for text colors:
   /* --font-weight-400: 400;  */
   /*normal*/
 
-  --font-weight-500: 500;
-  --font-weight-600: 600; /*semi-bold*/
+  --fw-500: 500;
+  --fw-600: 600; /*semi-bold*/
 
-  --font-size-11px: 11px;
-  --font-size-13px: 13px;
+  --size-11px: 11px;
+  --size-13px: 13px;
+  --size-18px: 18px;
+  --size-20px: 20px;
+  --size-28px: 28px;
 }
 
 /* General & Global styling */
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
   /* background: var(--Very-Light-Gray);
@@ -61,11 +58,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   margin: auto;
   padding: 0;
 }
-
+main {
+  display: grid;
+  grid-template-rows: 1fr;
+  padding: 0.5rem 1.7rem 1rem;
+  width: 100vw;
+  min-width: 24rem;
+}
 footer {
   color: (var(--White));
   position: relative;
@@ -77,4 +80,69 @@ footer {
 }
 .attribution a {
   color: var(--Attribution-color);
+}
+
+@media only screen and (max-width: 780px) and (max-height: 1824px) {
+  /* (min-width: 780px) or 375 and (max-width: 1120px); */
+  article.daniel {
+    background: var(--Moderate-violet) url("/images/bg-pattern-quotation.svg")
+      no-repeat top right;
+    background-size: 104px 102px;
+    background-position: top calc(0.1rem) right calc(1.5rem);
+    border-radius: 1em;
+    padding: 1.5em;
+    position: relative;
+  }
+  img.profile-img {
+    border-radius: 1em;
+    border: solid 2px var(--violet-50-opacity);
+    height: var(--size-28px);
+    width: var(--size-28px);
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* gap: 0.5rem; */
+  }
+
+  header div {
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: 0.5rem;
+    /* gap: .25rem; */
+  }
+  header p:first-of-type {
+    color: var(--White);
+    font-size: var(--size-13px);
+    line-height: var(--size-13px);
+  }
+
+  header p:last-of-type {
+    color: var(--violet-50-opacity);
+    font-size: var(--size-11px);
+    line-height: var(--size-11px);
+  }
+
+  header p:first-of-type,
+  header p:last-of-type {
+    font-weight: var(--fw-500);
+    margin: 0;
+    letter-spacing: 0;
+  }
+
+  article.daniel h1 {
+    color: var(--White);
+    font-size: var(--size-20px);
+    font-weight: var(--fw-600);
+    line-height: auto;
+    margin-bottom: 1.5em;
+  }
+
+  .quote {
+    color: var(--violet-70-opacity);
+    font-weight: var(--fw-500);
+    font-size: var(--size-13px);
+    line-height: var(--size-18px);
+  }
 }
